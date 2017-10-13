@@ -1,0 +1,21 @@
+{
+  "name": "csp",
+  "version": "0.0.1",
+  "description": "my cmd tool",
+  "main": "index.js",
+  "author": "caoshiping",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "cli-table-redemption": "^1.0.1",
+    "inquirer": "^3.3.0",
+    "progress": "^2.0.0",
+    "shelljs": "^0.7.8",
+    "yargs": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/shelljs": "^0.7.4",
+    "@types/yargs": "^8.0.2",
+    "typescript": "^2.5.3"
+  }
+}
