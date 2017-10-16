@@ -1,11 +1,13 @@
 import * as args from "yargs";
-import { web, cp } from "./lib";
+import { web, cp, getIp, qr } from "./lib";
+const packAge = require("../package");
 
 /**
  * 自制命令行工具
  */
 args
   .usage("Usage: csp [Commands] [Options]")
+  // 查看天气
   .command(
     "weather",
     "weather [Options]",
@@ -24,6 +26,7 @@ args
       console.log(argv);
     }
   )
+  // 复制文件
   .command(
     "cp",
     "cp [Options]",
@@ -46,6 +49,7 @@ args
     },
     argv => cp(argv["source"], argv["target"])
   )
+  // 创建一个简单服务
   .command(
     "web",
     "web [Options]",
@@ -61,4 +65,28 @@ args
         .example("web -p 3030", "create server by 3030");
     },
     argv => web(argv["port"])
-  );
+  )
+  // 生成二维码
+  .command(
+    "qr",
+    "qr [Options]",
+    yargs => {
+      return yargs
+        .reset()
+        .option("u", {
+          alias: "qrcode",
+          demand: true,
+          describe: "url path(二维码值)",
+          type: "string"
+        })
+        .example("qr -u http://www.baidu.com", "生成二维码");
+    },
+    argv => qr(argv["qrcode"])
+  )
+  // 获取本机ip
+  .command("ip", "ip", {}, argv => getIp())
+  .demandCommand(4)
+  .help("h")
+  .alias("h", "help")
+  .version("version", packAge.version)
+  .alias("v", "version").argv;

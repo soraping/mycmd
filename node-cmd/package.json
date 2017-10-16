@@ -5,15 +5,22 @@
   "main": "index.js",
   "author": "caoshiping",
   "license": "MIT",
+  "bin": {
+    "csp": "index"
+  },
   "dependencies": {
     "chalk": "^2.1.0",
     "cli-table-redemption": "^1.0.1",
     "inquirer": "^3.3.0",
+    "lodash": "^4.17.4",
     "progress": "^2.0.0",
+    "qrcode-terminal": "^0.11.0",
     "shelljs": "^0.7.8",
     "yargs": "^9.0.1"
   },
   "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/lodash": "^4.14.77",
     "@types/shelljs": "^0.7.4",
     "@types/yargs": "^8.0.2",
     "typescript": "^2.5.3"
