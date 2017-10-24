@@ -1,5 +1,5 @@
 import * as args from "yargs";
-import { web, cp, getIp, qr } from "./lib";
+import { web, cp, getIp, qr, weather } from "./lib";
 const packAge = require("../package");
 
 /**
@@ -23,7 +23,7 @@ args
         .example("weather -c nanjing", "show nanjing weather info");
     },
     argv => {
-      console.log(argv);
+      weather(argv["city"]);
     }
   )
   // 复制文件
@@ -85,7 +85,7 @@ args
   )
   // 获取本机ip
   .command("ip", "ip", {}, argv => getIp())
-  .demandCommand(4)
+  .demandCommand(5)
   .help("h")
   .alias("h", "help")
   .version("version", packAge.version)
